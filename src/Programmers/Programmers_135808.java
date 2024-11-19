@@ -9,27 +9,11 @@ public class Programmers_135808 {
         int m = 3;
         int[] score = {4, 1, 2, 2, 4, 4, 4, 4, 1, 2, 4, 2};
         int answer = 0;
-        int cnt = 0;
+        int n = score.length;
         Arrays.sort(score);
-        for (int i =0; i< score.length; i++) {
-            System.out.print(score[i] + " ");
-        }
 
-
-        if (score.length <m*2) {
-           answer = score[m-1] *m;
-        } else if (score.length > m*2) {
-
-            for (int i = 0; i< score.length/m; i++) {
-                score[cnt] = score[cnt] *m;
-                System.out.println("score: " + score[cnt]);
-                answer = answer + score[cnt];
-                cnt = cnt +m;
-            }
-
-        }else  {
-            answer =0;
-            System.out.println();
+        for ( int i = n-m; i>=0; i -= m) {
+            answer = answer + score[i] *m;
         }
         System.out.println(answer);
 
